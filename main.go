@@ -6,8 +6,21 @@ import (
 	"fmt"
 	k8s "github.com/micro/examples/kubernetes/go/micro"
 	"github.com/micro/go-micro/client"
+	"github.com/onskycloud/rbac/model"
 	"strings"
 )
+
+// CallMicro call micro from endpoint
+func CallMicro(namespace string, microName string, endpoint string, body string) (*model.ObjectData, error) {
+	var result interface{}
+	var data *model.ObjectData
+	err := Call(namespace, microName, endpoint, body, &result)
+	if err != nil || result == nil {
+		return nil, err
+	}
+	data.Value = result
+	return data, nil
+}
 
 // Call cal micro no protos
 func Call(ns string, svcName string, endPoint string, body string, result interface{}) error {
