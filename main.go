@@ -10,11 +10,11 @@ import (
 	"strings"
 )
 
-// CallMicro call micro from endpoint
-func CallMicro(namespace string, microName string, endpoint string, body string) (*model.ObjectData, error) {
+// Call call micro from endpoint
+func Call(namespace string, microName string, endpoint string, body string) (*model.ObjectData, error) {
 	var result interface{}
 	var data *model.ObjectData
-	err := Call(namespace, microName, endpoint, body, &result)
+	err := CallMicro(namespace, microName, endpoint, body, &result)
 	if err != nil || result == nil {
 		return nil, err
 	}
@@ -22,8 +22,8 @@ func CallMicro(namespace string, microName string, endpoint string, body string)
 	return data, nil
 }
 
-// Call cal micro no protos
-func Call(ns string, svcName string, endPoint string, body string, result interface{}) error {
+// CallMicro cal micro no protos
+func CallMicro(ns string, svcName string, endPoint string, body string, result interface{}) error {
 	service := k8s.NewService()
 	service.Init()
 	c := service.Client()
