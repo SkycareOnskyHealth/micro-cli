@@ -13,13 +13,13 @@ import (
 // Call call micro from endpoint
 func Call(namespace string, microName string, endpoint string, body string) (*model.ObjectData, error) {
 	var result interface{}
-	var data *model.ObjectData
+	data := model.ObjectData{}
 	err := CallMicro(namespace, microName, endpoint, body, &result)
 	if err != nil || result == nil {
 		return nil, err
 	}
 	data.Value = result
-	return data, nil
+	return &data, nil
 }
 
 // CallMicro cal micro no protos
@@ -28,7 +28,7 @@ func CallMicro(ns string, svcName string, endPoint string, body string, result i
 	service.Init()
 	c := service.Client()
 	t := StrToMap(body)
-	request := c.NewRequest(fmt.Sprintf("%s.%s",svcName, ns ), endPoint, t, client.WithContentType("application/json"))
+	request := c.NewRequest(fmt.Sprintf("%s.%s", svcName, ns), endPoint, t, client.WithContentType("application/json"))
 	var response json.RawMessage
 
 	if err := c.Call(context.Background(), request, &response); err != nil {
