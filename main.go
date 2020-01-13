@@ -28,7 +28,7 @@ func CallMicro(ns string, svcName string, endPoint string, body string, result i
 	service.Init()
 	c := service.Client()
 	t := StrToMap(body)
-	request := c.NewRequest(fmt.Sprintf("%s.%s", ns, svcName), endPoint, t, client.WithContentType("application/json"))
+	request := c.NewRequest(fmt.Sprintf("%s.%s",svcName, ns ), endPoint, t, client.WithContentType("application/json"))
 	var response json.RawMessage
 
 	if err := c.Call(context.Background(), request, &response); err != nil {
