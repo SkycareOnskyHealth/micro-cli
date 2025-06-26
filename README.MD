@@ -1,8 +1,8 @@
 # micro-cli Helper
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://github.com/onskycloud/micro-cli)
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://github.com/SkycareOnskyHealth/micro-cli)
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/onskycloud/micro-cli)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/SkycareOnskyHealth/micro-cli)
 
 micro-cli parser helper.
 
@@ -25,7 +25,7 @@ Request handler requires [Go](https://golang.org/) v1.11+ to run.
 Install the package.
 
 ```sh
-$ go get github.com/onskycloud/micro-cli
+$ go get github.com/SkycareOnskyHealth/micro-cli
 ```
 
 #### Kubernetes + Google Cloud

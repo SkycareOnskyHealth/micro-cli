@@ -4,10 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strings"
+
+	"github.com/SkycareOnskyHealth/rbac/model"
 	k8s "github.com/micro/examples/kubernetes/go/micro"
 	"github.com/micro/go-micro/client"
-	"github.com/onskycloud/rbac/model"
-	"strings"
 )
 
 // Call call micro from endpoint

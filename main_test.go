@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/onskycloud/rbac/model"
+	"github.com/SkycareOnskyHealth/rbac/model"
 )
 
 func TestCall(t *testing.T) {
